@@ -1,0 +1,17 @@
+<div>
+    <input type="text" #nombre>
+    <input type="text" #apellido1>
+    <input type="text" #apellido2>
+    <button (click)="crearAlumno(nombre.value, apellido1.value, apellido2.value)">
+        CREAR ALUMNO
+    </button>
+</div>
+
+<div *ngFor="let a of alumnosArray">
+    {{a.data.nombre}}
+    <button (click)="eliminar(a.id)">
+        ELIMINAR
+    </button>
+</div>
+
+<button (click)="salir()">SALIR</button>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'lista-angular';
+
+
+  constructor(private db: AngularFirestore) {
+    const prueba = this.db.collection('prueba').valueChanges();
+    prueba.subscribe(console.log);
+}
 }
