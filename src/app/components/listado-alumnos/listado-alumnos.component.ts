@@ -1,15 +1,60 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
-  selector: 'app-listado-alumnos',
-  templateUrl: './listado-alumnos.component.html',
-  styleUrls: ['./listado-alumnos.component.css']
+selector: 'app-listado-alumnos',
+templateUrl: './listado-alumnos.component.html',
+styleUrls: ['./listado-alumnos.component.css']
 })
-export class ListadoAlumnosComponent implements OnInit {
+export class ListadoAlumnosComponent implements OnInit, OnChanges {
 
-  constructor() { }
 
-  ngOnInit(): void {
-  }
+alumnosRef;
+alumnosArray = [];
+alumnosArrayFiltrado = [];
+@Input() jornada;
+
+constructor(private db: AngularFirestore ) {
+this.alumnosRef = this.db.collection('alumnos');
+const alumnos = this.db.collection('alumnos').snapshotChanges()
+alumnos.subscribe((res:any)=>{
+const arrayMapped = res.map((a)=>{
+const data = a.payload.doc.data();
+const id = a.payload.doc.id;
+return {data, id}
+})
+this.alumnosArray = arrayMapped;
+this.alumnosArrayFiltrado = this.alumnosArray;
+console.log('ARRAY MAPPED', arrayMapped)
+});
+
+
+}
+
+ngOnInit(): void {
+
+}
+
+ngOnChanges(changes: SimpleChanges) {
+console.log('NG ON CHANGES');
+this.filtrar()
+
+}
+
+filtrar(){
+const jornadaParseada = parseInt(this.jornada);
+this.alumnosArrayFiltrado = this.alumnosArray.filter((participante)=>{
+if(participante.data.jornada === jornadaParseada ){
+return true
+}else{
+return false
+}
+})
+}
+
+eliminar(id:string){
+console.log('id', id);
+this.alumnosRef.doc(id).delete()
+}
 
 }

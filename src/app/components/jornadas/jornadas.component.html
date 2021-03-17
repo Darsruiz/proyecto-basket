@@ -1,1 +1,6 @@
-<p>jornadas works!</p>
+<label for="jor">Jornada</label>
+<select [ngModel]="selectedItem" (ngModelChange)="onChange($event)" id="rol" name="rol">
+<option *ngFor="let jor of jornadasArray"
+[value]="jor"> {{ jor }}</option>
+
+</select>

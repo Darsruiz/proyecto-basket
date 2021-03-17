@@ -13,7 +13,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { LoginComponent } from './paginas/login/login.component';
 import { ListadoComponent } from './paginas/listado/listado.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';//Permite usar el ngModel y ngModelChange
 import { AdminComponent } from './paginas/admin/admin.component';
 import { JornadasComponent } from './components/jornadas/jornadas.component';
 import { ListadoAlumnosComponent } from './components/listado-alumnos/listado-alumnos.component';

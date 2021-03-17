@@ -1,1 +1,4 @@
-<p>listado-alumnos works!</p>
+<div *ngFor="let a of alumnosArrayFiltrado">
+    {{a.data.nombre}} - {{ a.data.date.toDate() | date: 'h:mm a' }}
+    <button (click)="eliminar(a.id)">ELIMINAR</button>
+    </div>

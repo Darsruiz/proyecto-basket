@@ -1,6 +1,6 @@
 <div>
         <div>
-        <input type="text" placeholder="Nombre" #nombre />
+        <input type="text" placeholder="Nombre" #nombre /><!-- #asdf ->template reference variable -->
         </div>
         <div>
         <input type="text" placeholder="Apellido" #apellido1 />
@@ -18,7 +18,7 @@
         <input type="text" placeholder="Email" #email />
         </div>
         <div>
-        <app-listado-rol (rol)="rolDefinido($event)"></app-listado-rol>
+        <app-listado-rol (rol)="rolDefinido($event)"></app-listado-rol> <!-- (rol)->output, se escucha del hijo // rolDefinido ->funcion -->
         </div>
         <div>
             <app-jornadas (jornada)="jornadasDefinidas($event)">
