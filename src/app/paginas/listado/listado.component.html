@@ -1,17 +1,43 @@
 <div>
-    <input type="text" #nombre>
-    <input type="text" #apellido1>
-    <input type="text" #apellido2>
-    <button (click)="crearAlumno(nombre.value, apellido1.value, apellido2.value)">
-        CREAR ALUMNO
-    </button>
-</div>
+        <div>
+        <input type="text" placeholder="Nombre" #nombre />
+        </div>
+        <div>
+        <input type="text" placeholder="Apellido" #apellido1 />
+        </div>
+        <div>
+        <input type="text" placeholder="Apellido 2" #apellido2 />
+        </div>
+        <div>
+        <input type="text" placeholder="Teléfono" #telefono />
+        </div>
+        <div>
+        <input type="text" placeholder="DNI" #dni />
+        </div>
+        <div>
+        <input type="text" placeholder="Email" #email />
+        </div>
+        <div>
+        <app-listado-rol (rol)="rolDefinido($event)"></app-listado-rol>
+        </div>
+        <div>
+            <app-jornadas (jornada)="jornadasDefinidas($event)">
+            </app-jornadas>
+        </div>
+        <div>
+            <button (click)="crearAlumno(
+            nombre.value,
+            apellido1.value,
+            apellido2.value,
+            telefono.value,
+            dni.value,
+            email.value
+            )">
+            CREAR ALUMNO
+        </button>
+        </div>
+    
+    </div>
+    
 
-<div *ngFor="let a of alumnosArray">
-    {{a.data.nombre}}
-    <button (click)="eliminar(a.id)">
-        ELIMINAR
-    </button>
-</div>
-
-<button (click)="salir()">SALIR</button>
+    <button (click)="salir()">SALIR</button>

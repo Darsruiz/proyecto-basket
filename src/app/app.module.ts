@@ -14,6 +14,10 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { LoginComponent } from './paginas/login/login.component';
 import { ListadoComponent } from './paginas/listado/listado.component';
 import { FormsModule } from '@angular/forms';
+import { AdminComponent } from './paginas/admin/admin.component';
+import { JornadasComponent } from './components/jornadas/jornadas.component';
+import { ListadoAlumnosComponent } from './components/listado-alumnos/listado-alumnos.component';
+import { ListadoRolComponent } from './components/listado-rol/listado-rol.component';
 
 const config = {
   apiKey: "AIzaSyAf35Wm-5wmFW4VS0e7VkSURmrWdWmDnv0",
@@ -28,7 +32,11 @@ const config = {
   declarations: [
     AppComponent,
     LoginComponent,
-    ListadoComponent
+    ListadoComponent,
+    AdminComponent,
+    JornadasComponent,
+    ListadoAlumnosComponent,
+    ListadoRolComponent
   ],
   imports: [
     BrowserModule,
