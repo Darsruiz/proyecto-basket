@@ -1,31 +1,56 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { LogueadoService } from '../../servicios/logueado/logueado.service';
+
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+selector: 'app-login',
+templateUrl: './login.component.html',
+styleUrls: ['./login.component.css']
 })
-export class LoginComponent /*implements OnInit*/ {
+export class LoginComponent {
+
 
   email: string | undefined;
   password: string | undefined;
+  array= [];
 
-  constructor( private route: Router)/*esto es un servicio*/ { }
 
-  /*ngOnInit(): void {
-  }*/
+  constructor(
+  private snackbar: MatSnackBar,
+  private route: Router,
+  private logueado: LogueadoService
+  ) {
+
+  }
+
 
   login(){
-    if(this.email && this.password){
-      console.log('HAY UN EMAIL Y UN PASSWORD');
-      this.route.navigateByUrl('listado')
-      //LE VAMOS A LLEVAR A LA PÁGINA DE LISTADO
-      //this.route.navigate
-    }else{
-      console.log('FALTA EMAIL O PASSWORD')
-    }
-  };
+    //this.login()
+    if(this.email && this.password ){
+    console.log('HAY UN EMAIL Y UN PASSWORD');
+    /// TENGO QUE COMPROBAR SI EL EMAIL Y EL PASSWORD COINCIDEN
 
+      if ( this.email === 'aeblapalma@gmail.com' && this.password === '123') {
+      /// SI COINCIDEN ENTRA AQUI
+      this.route.navigateByUrl('admin');
+      this.logueado.setEstado(true)
+      } else {
+      this.logueado.setEstado(false)
+
+      /// SI NO COINCIDEN ENTRA AQUI
+      this.snackbar.open('Email o password', 'OK', {
+      panelClass: ['errorSnackbar']
+      })
+      }
+    }else{
+    this.logueado.setEstado(false)
+    this.snackbar.open('Error falta email o password', 'OK', {
+    panelClass: ['errorSnackbar']
+    })
+
+    console.log('FALTA EMAIL O PASSWORD');
+    }
+  }
 }

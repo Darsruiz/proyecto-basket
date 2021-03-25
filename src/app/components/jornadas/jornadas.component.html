@@ -1,6 +1,15 @@
-<label for="jor">Jornada</label>
+<!-- <label for="jor">Jornada</label>
 <select [ngModel]="selectedItem" (ngModelChange)="onChange($event)" id="rol" name="rol">
 <option *ngFor="let jor of jornadasArray"
 [value]="jor"> {{ jor }}</option>
 
-</select>
+</select> -->
+
+<mat-form-field appearance="fill">
+    <mat-label>Jornadas</mat-label>
+    <mat-select [ngModel]="selectedItem" (ngModelChange)="onChange($event)" id="rol" name="rol">
+    <mat-option *ngFor="let jor of jornadasArray"
+    [value]="jor"> {{ jor }}
+    </mat-option>
+    </mat-select>
+</mat-form-field>

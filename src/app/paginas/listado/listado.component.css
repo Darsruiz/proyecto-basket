@@ -1,0 +1,23 @@
+.card {
+    margin: 5% auto;
+    width: 50%;
+    }
+    
+    .error {
+    color: red
+    }
+    
+    .success {
+    color: green
+    }
+
+    input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+-moz-appearance: textfield;
+}

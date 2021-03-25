@@ -1,43 +1,71 @@
+<mat-card class="card">
 <div>
+    
         <div>
-        <input type="text" placeholder="Nombre" #nombre /><!-- #asdf ->template reference variable -->
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input [ngModel]="nombre.value" #nombre (ngModelChange)="comprobarNombre($event)" matInput placeholder="Juan Perez">
+                <mat-icon [class]=" nombreWrong " matSuffix>face</mat-icon>
+                <mat-hint class="error" *ngIf="(nombreWrong === 'error')">El formato debe ser entre 1 y 100 caracteres</mat-hint>
+            </mat-form-field>
+       
+        </div>
+
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Teléfono</mat-label>
+                <input onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" min="1" maxlength="9" type="text" [ngModel]="telefono.value " #telefono (ngModelChange)="comprobarTelefono($event) " matInput placeholder="678234567">
+                <mat-icon [class]="phoneWrong " matSuffix>phone</mat-icon>
+                <mat-hint class="error " *ngIf="( phoneWrong==='error' ) ">El formato debe ser numero de 9 dígitos</mat-hint>
+            </mat-form-field>
+           
+        </div>
+        
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>DNI</mat-label>
+                <input maxlength="9" type="text" [ngModel]="dni.value " #dni (ngModelChange)="comprobarDni($event) " matInput placeholder="12345678B o X1234567Y">
+                <mat-icon [class]="dniWrong" matSuffix>assignment_id</mat-icon>
+                <mat-hint class="error " *ngIf="( dniWrong ==='error' ) ">
+                
+                El formato debe ser DNI o NIE</mat-hint>
+                </mat-form-field>
         </div>
         <div>
-        <input type="text" placeholder="Apellido" #apellido1 />
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input maxlength="200" type="email" [ngModel]="email.value " #email (ngModelChange)="comprobarEmail($event) " matInput placeholder="nombre@dominio.com">
+                <mat-icon [class]="emailWrong" matSuffix>email</mat-icon>
+                <mat-hint class="error" *ngIf="( emailWrong ==='error' ) ">
+                El formato debe ser email válido</mat-hint>
+            </mat-form-field><!--"#email" template refence variable 
+            "*ngIf" 
+            "matSuffix" directiva para poner el icono a la izquierda o derecha
+            --> 
+        
         </div>
         <div>
-        <input type="text" placeholder="Apellido 2" #apellido2 />
-        </div>
-        <div>
-        <input type="text" placeholder="Teléfono" #telefono />
-        </div>
-        <div>
-        <input type="text" placeholder="DNI" #dni />
-        </div>
-        <div>
-        <input type="text" placeholder="Email" #email />
-        </div>
-        <div>
-        <app-listado-rol (rol)="rolDefinido($event)"></app-listado-rol> <!-- (rol)->output, se escucha del hijo // rolDefinido ->funcion -->
+            <app-listado-rol (rol)="rolDefinido($event)"></app-listado-rol>
+              <!-- "[(ngModel)]" two way data binding - la informacion del html y ts estan conectados, los cambios en unoo afectan al otro -->
+         <!-- (rol)->output, se escucha del hijo // rolDefinido ->funcion -->
         </div>
         <div>
             <app-jornadas (jornada)="jornadasDefinidas($event)">
             </app-jornadas>
         </div>
         <div>
-            <button (click)="crearAlumno(
+
+        <button mat-raised-button [disabled]="" (click)="crearAlumno(
             nombre.value,
-            apellido1.value,
-            apellido2.value,
+
             telefono.value,
             dni.value,
             email.value
-            )">
-            CREAR ALUMNO
-        </button>
+            )" mat-raised-button color="primary">Crear Asistente</button>
         </div>
     
-    </div>
+</div>
     
 
     <button (click)="salir()">SALIR</button>
+    </mat-card>

@@ -1,6 +1,17 @@
-<label for="rol">Rol</label>
+<!-- <label for="rol">Rol</label>
 <select [ngModel]="selectedItem" (ngModelChange)="onChange($event)" id="rol" name="rol">
 <option *ngFor="let rol of rolesArray"
-[value]="rol"> {{ rol }}</option>
-
+[value]="rol"> {{ rol }}</option> 
 </select>
+-->
+
+<mat-form-field appearance="fill">
+    <mat-label>Rol</mat-label>
+    <mat-select [ngModel]="selectedItem" (ngModelChange)="onChange($event)" id="rol" name="rol">
+    <mat-option *ngFor="let rol of rolesArray"
+    [value]="rol"> {{ rol }}
+    </mat-option>
+    </mat-select>
+</mat-form-field>
+
+

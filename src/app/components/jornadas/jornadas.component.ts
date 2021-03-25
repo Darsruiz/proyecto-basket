@@ -22,16 +22,17 @@ constructor( private db: AngularFirestore) {
 }
 
 ngOnInit(): void {
-this.subscripcionAJornadas = this.db.collection('jornadas').valueChanges().subscribe((res)=>{
-this.cuantasJornadasHay = res.find((ele)=>{
-return ele['jornadas']
-})
-this.crearArrayDeJornadas(this.cuantasJornadasHay.jornadas);
-this.enQueJornadaEstoy = res.find((ele)=>{
-return ele['jornadaActual']
-})
-this.selectedItem = this.enQueJornadaEstoy.jornadaActual
-})
+    this.subscripcionAJornadas = this.db.collection('jornadas').valueChanges().subscribe((res)=>{
+        this.cuantasJornadasHay = res.find((ele)=>{
+        return ele['jornadas']
+        })
+        this.crearArrayDeJornadas(this.cuantasJornadasHay.jornadas);
+        this.enQueJornadaEstoy = res.find((ele)=>{
+        return ele['jornadaActual']
+        })
+        this.selectedItem = this.enQueJornadaEstoy.jornadaActual;
+        this.jornada.emit(this.selectedItem)
+        })
 }
 
 ngOnDestroy(){
