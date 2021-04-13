@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class LogueadoService {
 
-  estoyLogueado = false;
+  private estoyLogueado: boolean = false;
 
   constructor() { }
 

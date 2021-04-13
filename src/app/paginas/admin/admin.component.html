@@ -1,3 +1,8 @@
-<app-jornadas (jornada)="filtrarPorJornada($event)"></app-jornadas>
+<mat-card>
+    <app-jornadas (jornada)="filtrarPorJornada($event)"></app-jornadas>
 
-<app-listado-alumnos [jornada]="jornadaAFiltrar"></app-listado-alumnos>
+    <app-listado-alumnos [jornada]="jornadaAFiltrar"></app-listado-alumnos>
+</mat-card>
+
+
+<app-listado-alumnos appAumentar [jornada]="jornadaAFiltrar"></app-listado-alumnos>

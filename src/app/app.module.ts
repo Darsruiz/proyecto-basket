@@ -13,7 +13,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { LoginComponent } from './paginas/login/login.component';
 import { ListadoComponent } from './paginas/listado/listado.component';
-import { FormsModule } from '@angular/forms';//Permite usar el ngModel y ngModelChange
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';//Permite usar el ngModel y ngModelChange
 import { AdminComponent } from './paginas/admin/admin.component';
 import { JornadasComponent } from './components/jornadas/jornadas.component';
 import { ListadoAlumnosComponent } from './components/listado-alumnos/listado-alumnos.component';
@@ -27,6 +27,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { BienvenidaComponent } from './paginas/bienvenida/bienvenida.component';
+import { PipeMinusculasPipe } from './pipes/pipeMinusculas/pipe-minusculas.pipe';
+import { AumentarDirective } from './directives/aumentar/aumentar.directive';
 
 
 
@@ -52,7 +54,9 @@ const config = {
     JornadasComponent,
     ListadoAlumnosComponent,
     ListadoRolComponent,
-    BienvenidaComponent
+    BienvenidaComponent,
+    PipeMinusculasPipe,
+    AumentarDirective
   ],
   imports: [
     BrowserModule,
@@ -62,6 +66,7 @@ const config = {
     AngularFireAuthModule, // auth
     AngularFireStorageModule, // storage
     FormsModule, 
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatCardModule,
     MatFormFieldModule,

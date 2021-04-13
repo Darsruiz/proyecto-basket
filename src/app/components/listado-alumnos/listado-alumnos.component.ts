@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import Swal from 'sweetalert2'
 
 @Component({
 selector: 'app-listado-alumnos',
@@ -53,8 +54,20 @@ return false
 }
 
 eliminar(id:string){
-console.log('id', id);
-this.alumnosRef.doc(id).delete()
-}
-
+    console.log('id', id);
+    
+    Swal.fire({
+    title: '¿Estás seguro que deseas eliminarlo?',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, delete it!',
+    cancelButtonText: 'No, keep it'
+    }).then((result) => {
+    if (result.value) {
+    // QUIERO ELIMINAR A ESTE USUARIO;
+    this.alumnosRef.doc(id).delete()
+    
+    }
+    })
+    //
+    }
 }

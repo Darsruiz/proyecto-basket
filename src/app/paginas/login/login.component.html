@@ -1,5 +1,36 @@
-<input type="text" [(ngModel)]="email"> <!-- ngModel - to way data binding, enlaza ts con el el html -->
-<input type="text" [(ngModel)]="password">
-<button (click)="login()">
-    ENTRAR
-</button>
+<p>{{ pipeVar | pipeMinusculas: 2 }}</p>
+
+<mat-card class="example-card" layout="row" layout-align="center center">
+    <form [formGroup]="formData">
+    <mat-card-content>
+    <div class="container">
+    <div style="text-align:center; margin-bottom: 20px;">
+    <mat-card-title>Login</mat-card-title>
+    </div>
+    <mat-form-field appearance="outline" class="email">
+    <mat-label>Email</mat-label>
+    <input matInput type="text" [formControlName]="'email'" placeholder=" Intro email ">
+    <mat-icon matPrefix *ngIf="email?.invalid && email?.dirty" class="error ">warning</mat-icon>
+    </mat-form-field>
+    
+    
+    
+    
+    <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    
+    <input matInput [type]="hide ? 'password' : 'text' " [formControlName]="'password'">
+    <button mat-icon-button matSuffix (click)="hide = !hide " [attr.aria-label]=" 'Esconder password ' " [attr.aria-pressed]="hide ">
+    <mat-icon>{{ hide ? 'visibility_off ' : 'visibility '}}</mat-icon>
+    </button>
+    <mat-icon matPrefix *ngIf="password?.invalid && password?.dirty" class="error">warning</mat-icon>
+    </mat-form-field>
+    
+    
+    <button mat-raised-button color="primary" [disabled]="formData?.invalid" (click)="login()">
+    LOG IN
+    </button>
+    </div>
+    </mat-card-content>
+    </form>
+    </mat-card>
