@@ -9,7 +9,7 @@ import { IsLogueadoGuard } from './guard/isLogueado/is-logueado.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'listado',
+    redirectTo: 'formulario',
     pathMatch: 'full'
   },
   {
@@ -18,7 +18,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'listado',
+    path: 'formulario',
     component: ListadoComponent
   },
   {

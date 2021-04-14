@@ -1,4 +1,80 @@
-<div *ngFor="let a of alumnosArrayFiltrado">
+<!-- <div *ngFor="let a of alumnosArrayFiltrado">
     {{a.data.nombre}} - {{ a.data.date.toDate() | date: 'h:mm a' }}
     <button (click)="eliminar(a.id)">ELIMINAR</button>
-    </div>
+    </div> -->
+
+    <mat-card>
+        <mat-form-field>
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+        </mat-form-field>
+    </mat-card>
+
+    <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let asistente"> {{asistente.nombre}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="telefono">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef> Teléfono </th>
+          <td mat-cell *matCellDef="let asistente"> {{asistente.telefono}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="dni">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef> DNI </th>
+          <td mat-cell *matCellDef="let asistente"> {{asistente.dni}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let asistente"> {{asistente.email}} 
+          </td>
+        <!-- ARBITRO 'sports'-->
+        <!-- JUGADOR 'sports-basketball'-->
+        <!-- JUGADOR 'catching-pokemon'-->
+        <!-- JUGADOR 'people-alt'-->
+
+        </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="rol">
+                    <th mat-header-cell mat-sort-header *matHeaderCellDef> Rol </th>
+                    <td mat-cell *matCellDef="let asistente"> {{asistente.rol}} 
+                        <!-- <mat-icon>
+                            {{ asistente.rol | iconoRol }}
+                        </mat-icon> -->
+          
+                    </td>
+                  </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="jornada">
+                    <th mat-header-cell mat-sort-header *matHeaderCellDef> Jornada </th>
+                    <td mat-cell *matCellDef="let asistente"> {{asistente.jornada}} </td>
+                  </ng-container>
+
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+                    <td mat-cell *matCellDef="let asistente"> {{asistente.eliminar}} 
+                        <mat-icon (click)="eliminar(asistente.id)" class="error">delete</mat-icon>
+                    </td>
+                  </ng-container>
+          
+          
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      
+      

@@ -29,6 +29,14 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { BienvenidaComponent } from './paginas/bienvenida/bienvenida.component';
 import { PipeMinusculasPipe } from './pipes/pipeMinusculas/pipe-minusculas.pipe';
 import { AumentarDirective } from './directives/aumentar/aumentar.directive';
+import {MatTableModule} from '@angular/material/table';
+import { IconoRolPipe } from './pipes/iconoRol/icono-rol.pipe';
+import {MatSortModule} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
+
+
+
+
 
 
 
@@ -56,7 +64,8 @@ const config = {
     ListadoRolComponent,
     BienvenidaComponent,
     PipeMinusculasPipe,
-    AumentarDirective
+    AumentarDirective,
+    IconoRolPipe
   ],
   imports: [
     BrowserModule,
@@ -74,7 +83,10 @@ const config = {
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule,
+    MatSortModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
