@@ -16,7 +16,7 @@ export class IsLogueadoGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     
       //está logueado
-      return true //this.logueado.getEstado()
+      return /*true */this.logueado.getEstado()
   }
   
 }
