@@ -65,7 +65,7 @@ login(){
 
 console.log('HAY UN EMAIL Y UN PASSWORD');
 /// TENGO QUE COMPROBAR SI EL EMAIL Y EL PASSWORD COINCIDEN
-if ( (this.formData.get('email').value ==='aeblapalma@gmail.com') && this.formData.get('password').value === '123') {
+if ( (this.formData.get('email').value ==='aeblapalma@gmail.com') && this.formData.get('password').value === 'Spartans.lapalma') {
 /// SI COINCIDEN ENTRA AQUI
 
 
