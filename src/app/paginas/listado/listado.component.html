@@ -1,6 +1,7 @@
-<mat-card class="card">
-<div>
-    
+<div class="contenedor">
+  <mat-card class="card">
+
+
         <div>
             <mat-form-field appearance="outline">
                 <mat-label>Nombre</mat-label>
@@ -8,7 +9,7 @@
                 <mat-icon [class]=" nombreWrong " matSuffix>face</mat-icon>
                 <mat-hint class="error" *ngIf="(nombreWrong === 'error')">El formato debe ser entre 1 y 100 caracteres</mat-hint>
             </mat-form-field>
-       
+
         </div>
 
         <div>
@@ -18,16 +19,16 @@
                 <mat-icon [class]="phoneWrong " matSuffix>phone</mat-icon>
                 <mat-hint class="error " *ngIf="( phoneWrong==='error' ) ">El formato debe ser numero de 9 dígitos</mat-hint>
             </mat-form-field>
-           
+
         </div>
-        
+
         <div>
             <mat-form-field appearance="outline">
                 <mat-label>DNI</mat-label>
                 <input maxlength="9" type="text" [ngModel]="dni.value " #dni (ngModelChange)="comprobarDni($event) " matInput placeholder="12345678B o X1234567Y">
                 <mat-icon [class]="dniWrong" matSuffix>assignment_id</mat-icon>
                 <mat-hint class="error " *ngIf="( dniWrong ==='error' ) ">
-                
+
                 El formato debe ser DNI o NIE</mat-hint>
                 </mat-form-field>
         </div>
@@ -38,11 +39,11 @@
                 <mat-icon [class]="emailWrong" matSuffix>email</mat-icon>
                 <mat-hint class="error" *ngIf="( emailWrong ==='error' ) ">
                 El formato debe ser email válido</mat-hint>
-            </mat-form-field><!--"#email" template refence variable 
-            "*ngIf" 
+            </mat-form-field><!--"#email" template refence variable
+            "*ngIf"
             "matSuffix" directiva para poner el icono a la izquierda o derecha
-            --> 
-        
+            -->
+
         </div>
         <div>
             <app-listado-rol (rol)="rolDefinido($event)"></app-listado-rol>
@@ -63,9 +64,10 @@
             email.value
             )" mat-raised-button color="primary">Crear Asistente</button>
         </div>
-    
-</div>
-    
 
-    
+
+
+
+
     </mat-card>
+</div>

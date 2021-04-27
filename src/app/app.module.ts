@@ -45,13 +45,13 @@ import {MatTableDataSource} from '@angular/material/table';
 
 
 const config = {
-  apiKey: "AIzaSyAf35Wm-5wmFW4VS0e7VkSURmrWdWmDnv0",
-  authDomain: "lista-angular-5565a.firebaseapp.com",
-  projectId: "lista-angular-5565a",
-  storageBucket: "lista-angular-5565a.appspot.com",
-  messagingSenderId: "96006701573",
-  appId: "1:96006701573:web:8ee75ca7a925a2a7c6d26c",
-  measurementId: "G-W3KM4WMCYL"
+  apiKey: "AIzaSyDGemDKPg94FzjP795Qr9-oWCDEKe_AnuY",
+  authDomain: "proyecto-basket.firebaseapp.com",
+  projectId: "proyecto-basket",
+  storageBucket: "proyecto-basket.appspot.com",
+  messagingSenderId: "971732944378",
+  appId: "1:971732944378:web:614ac191f1ad8284661043",
+  measurementId: "G-703MBM4XTH"
 };
 @NgModule({
   declarations: [
@@ -74,7 +74,7 @@ const config = {
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
     AngularFireStorageModule, // storage
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatCardModule,
@@ -86,12 +86,12 @@ const config = {
     MatSnackBarModule,
     MatTableModule,
     MatSortModule
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
+export class AppModule {
   constructor(private db: AngularFirestore) {
     const things = db.collection('things').valueChanges();
     console.log('RES');

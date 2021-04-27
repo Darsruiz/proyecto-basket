@@ -1,0 +1,16 @@
+header, footer {
+  background-color: rgb(53, 53, 53);
+  height: 10%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+p {
+  color: aliceblue;
+  margin-top: 10px;
+}
+
+h1 {
+  color: aliceblue;
+}
